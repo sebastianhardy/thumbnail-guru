@@ -1,0 +1,142 @@
+# Composition templates for base image generation.
+# Each composition is a prompt template with placeholders for user context.
+# Placeholders:
+#   {user_icon_desc}    — user's primary tool icon description
+#   {competitor_icons}  — comma-separated list of competitor icon descriptions
+#   {background}        — from brand config
+#   {aesthetic}         — from brand config
+#
+# All compositions intentionally leave the TOP HALF empty for text overlay.
+
+compositions:
+
+  - id: copy_any_brand
+    name: "Copy Any Brand — trinity with competitor icons"
+    best_for: "Tutorial, build-in-public, 'steal this' videos"
+    pairs_with_hooks: [forbidden_knowledge, identity_filter, specific_number_reveal, tool_stack]
+    text_area: "top_center"
+    prompt: |
+      YouTube thumbnail, 1280x720.
+      {background}
+      In the BOTTOM HALF of the frame, arranged horizontally in a single row at
+      roughly y=480 to y=680:
+      Left: {user_icon_desc}, large (roughly 220px tall).
+      Next to it: a large white 3D plus sign, crisp, chunky, with soft bottom glow.
+      Then a tight row of three more icons:
+      {competitor_icons}, each roughly 200px tall, evenly spaced.
+      All icons sit on an invisible surface with soft warm glow underneath.
+      TOP HALF is empty dark ambient background — NO ICONS, NO TEXT, NO OBJECTS
+      up there. This empty space is reserved for a text overlay added later.
+      Photorealistic 3D product-photography render, cinematic.
+
+  - id: hero_pair
+    name: "Hero Pair — your two main tools centered"
+    best_for: "Two-tool combo videos, simple visuals"
+    pairs_with_hooks: [time_compressed, one_weird_trick, before_after_gap]
+    text_area: "top_center"
+    prompt: |
+      YouTube thumbnail, 1280x720.
+      {background}
+      In the BOTTOM HALF of the frame, centered:
+      {user_icon_desc}, very large (roughly 280px tall).
+      A large white 3D plus sign next to it.
+      {competitor_icons}, very large (roughly 280px tall).
+      Both icons sit on the cyclorama floor with soft warm reflected glow
+      underneath. Warm rim light from top-right.
+      TOP HALF is empty seamless background — NO ICONS, NO TEXT, NO OBJECTS in
+      the top 50% of the frame. Reserved for text overlay.
+      Photorealistic 3D product-photography render, cinematic.
+
+  - id: crown_destruction
+    name: "Crown + Shattered Competitors — 'X is dead' energy"
+    best_for: "Pattern break, controversial call-out, 'it's over' videos"
+    pairs_with_hooks: [pattern_break, controversial_call_out, negative_superlative]
+    text_area: "top_center"
+    prompt: |
+      YouTube thumbnail, 1280x720.
+      Dark moody scene, cracked concrete floor with glowing orange lava cracks,
+      scattered smoke and ember particles, dramatic rim light from above,
+      cinematic apocalyptic mood, empty top third of the frame for text overlay.
+      In the BOTTOM HALF, center-stage, elevated slightly:
+      {user_icon_desc}, very large (roughly 280px tall), with a small golden
+      3D crown resting on top of it, glowing halo behind.
+      To the far left, at floor level, cracked and shattered, lying at an angle:
+      {competitor_icons_1}, pieces breaking off.
+      To the far right, at floor level, also shattered and falling apart:
+      {competitor_icons_2}, pieces scattering.
+      Ember particles floating. Dramatic rim light from above on the hero icon.
+      TOP HALF is empty dark ambient space — NO ICONS, NO TEXT, NO OBJECTS in
+      the top 50%. Reserved for text overlay.
+      Photorealistic cinematic 3D render, movie-poster energy.
+
+  - id: trinity_with_artifact
+    name: "Trinity with Brand Kit Artifact"
+    best_for: "'I built this' videos where the output is the star"
+    pairs_with_hooks: [specific_number_reveal, public_artifact, authority_shortcut]
+    text_area: "top_center"
+    prompt: |
+      YouTube thumbnail, 1280x720.
+      {background}
+      In the BOTTOM HALF of the frame, arranged:
+      Center-left: {user_icon_desc}, large (roughly 240px tall).
+      A white 3D plus sign.
+      Center-right: {competitor_icons}, large (roughly 240px tall).
+      Slightly behind and tilted between them, a 3D render of an open brand
+      guidelines book / style guide page showing color swatches, typography
+      specimens, and a logo, angled to be partially visible (suggesting "this
+      was built"). Warm rim light. Shallow depth of field.
+      TOP HALF is empty dark ambient space — NO ICONS, NO TEXT, NO OBJECTS in
+      the top 50%. Reserved for text overlay.
+      Photorealistic 3D product-photography render, cinematic.
+
+  - id: aspirational_brands
+    name: "Aspirational Brands — Copy Coca-Cola style"
+    best_for: "Audacious comparison, 'build at that level' videos"
+    pairs_with_hooks: [before_after_gap, reverse_brag, authority_shortcut]
+    text_area: "top_center"
+    prompt: |
+      YouTube thumbnail, 1280x720.
+      {background}
+      In the BOTTOM HALF of the frame, arranged horizontally:
+      Left: {user_icon_desc}, large (roughly 220px tall).
+      A large white 3D plus sign.
+      Then a tight row of three aspirational brand icons:
+      {aspirational_icons}, each roughly 200px tall. Soft warm glow underneath.
+      TOP HALF is empty dark ambient background — NO ICONS, NO TEXT, NO OBJECTS
+      in the top 50%. Reserved for text overlay.
+      Photorealistic 3D product-photography render, cinematic.
+
+# Background presets — user picks one in onboarding or defines custom.
+backgrounds:
+  dark_studio:
+    name: "Dark Studio"
+    prompt: >
+      Dark dimly-lit modern studio/office background, heavy bokeh blur,
+      warm tungsten rim light on the right edge, subtle potted plant silhouette,
+      deep charcoal and warm brown tones, cinematic low-key lighting,
+      empty top two-thirds of the frame.
+
+  seamless_cyc:
+    name: "Seamless Cyclorama"
+    prompt: >
+      Dark seamless cyclorama background, warm terracotta-to-charcoal
+      gradient wall, studio product photography lighting, empty top half.
+
+  destruction:
+    name: "Apocalyptic Ground"
+    prompt: >
+      Dark moody scene, cracked concrete floor with glowing orange lava cracks,
+      scattered smoke and ember particles, dramatic rim light from above,
+      cinematic apocalyptic mood, empty top third.
+
+  clean_minimal:
+    name: "Clean Minimal"
+    prompt: >
+      Soft off-white to bone gradient background, very subtle drop shadow under
+      floor plane, minimal studio lighting, bright and airy, empty top half.
+
+  high_contrast:
+    name: "High Contrast Tech"
+    prompt: >
+      Deep black void background with a single electric-blue rim light from
+      behind, subtle fog, studio product lighting, empty top half.

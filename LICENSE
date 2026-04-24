@@ -1,0 +1,63 @@
+THUMBNAIL FORGE — PERSONAL USE LICENSE
+
+Copyright (c) 2026 Sebastian Hardy
+https://www.youtube.com/@learnaibeforeitstolate
+
+Permission is hereby granted, free of charge, to any individual obtaining a
+copy of this software ("Thumbnail Forge") and associated files, to use the
+software for PERSONAL, NON-COMMERCIAL purposes, subject to the following
+conditions.
+
+YOU MAY:
+  - Install and run Thumbnail Forge on your own machines.
+  - Use Thumbnail Forge to generate thumbnails for your own YouTube channel,
+    podcast, social-media accounts, or personal content projects.
+  - Modify the source code for your own personal use.
+  - Fork this repository on GitHub and share your fork publicly, provided:
+      (a) this entire LICENSE file is preserved verbatim;
+      (b) the attribution line "Built by Sebastian Hardy" remains visible
+          in the README and in the CLI output.
+  - Share generated thumbnails publicly as your own creative output.
+
+YOU MAY NOT:
+  - Sell, sub-license, or otherwise monetize Thumbnail Forge or any
+    derivative thereof, whether as software, as a Software-as-a-Service
+    offering, or as a bundled component of a commercial product.
+  - Rebrand Thumbnail Forge and redistribute it under a different name,
+    author, or brand.
+  - Offer paid thumbnail-generation services to third parties that are
+    powered by Thumbnail Forge without an explicit commercial license from
+    the copyright holder.
+  - Remove, obscure, or modify the attribution to Sebastian Hardy that
+    appears in the README, the LICENSE file, or the standard CLI output.
+  - Train a commercial AI model on Thumbnail Forge source code for resale.
+
+COMMERCIAL LICENSES
+
+If you wish to use Thumbnail Forge for commercial purposes, including but
+not limited to running a paid thumbnail-generation service, embedding it in
+a paid product, or using it as part of a client-services agency workflow,
+contact the copyright holder at:
+
+  YouTube:   https://www.youtube.com/@learnaibeforeitstolate
+  Instagram: https://instagram.com/sebastianhardy_
+
+Commercial licenses may be granted at the copyright holder's sole
+discretion and are negotiated on a case-by-case basis.
+
+DISCLAIMER
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+Third-party dependencies (Google GenAI SDK, Pillow, Click, PyYAML, etc.)
+are licensed under their own terms. See their respective LICENSE files.
+
+Generated thumbnails are your creative output and are not subject to this
+license — you own what you generate, as long as the underlying image model
+(Gemini / Nano Banana Pro) permits.

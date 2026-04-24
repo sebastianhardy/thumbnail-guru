@@ -1,0 +1,103 @@
+# Text overlay styles. Each renders the hook at the TOP of the thumbnail.
+# Chrome headless screenshots the HTML at 1280x820, Pillow crops to 1280x720.
+
+styles:
+
+  - id: split_color_outline
+    name: "Split Color + Thick Outline"
+    best_for: "Tutorial videos, proof-heavy content, anything with 'COPY X' framing"
+    pairs_with_patterns:
+      - before_after_gap
+      - forbidden_knowledge
+      - identity_filter
+      - specific_number_reveal
+      - tool_stack
+      - reverse_brag
+    layout: "two_line_top"
+    css: |
+      .stack {
+        position: absolute; top: 36px; left: 0; right: 0;
+        text-align: center;
+        font-family: 'Paytone One', 'Bowlby One', sans-serif;
+        text-transform: uppercase;
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+        filter: drop-shadow(0 10px 18px rgba(0,0,0,0.55));
+      }
+      .line {
+        font-size: 130px;
+        font-weight: 400;
+        -webkit-text-stroke: 10px #F4EFE7;
+        paint-order: stroke fill;
+      }
+      .line.highlight {
+        background: linear-gradient(180deg, #FFC04A 0%, #FF6A1F 100%);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .line.white {
+        color: #F4EFE7;
+      }
+
+  - id: extruded_3d
+    name: "3D Extruded Block Letters"
+    best_for: "Bold takes, reaction thumbnails, short punchy lines"
+    pairs_with_patterns:
+      - pattern_break
+      - controversial_call_out
+      - negative_superlative
+      - direct_challenge
+      - interrupted_action
+    layout: "single_line_top"
+    css: |
+      .stack {
+        position: absolute; top: 40px; left: 0; right: 0;
+        text-align: center;
+        font-family: 'Bowlby One', 'Paytone One', sans-serif;
+        text-transform: uppercase;
+        letter-spacing: -0.01em;
+        line-height: 0.95;
+      }
+      .line3d {
+        font-size: 140px;
+        color: #F4EFE7;
+        text-shadow:
+          1px 1px 0 #d5d5d5,
+          2px 2px 0 #c0c0c0,
+          3px 3px 0 #a8a8a8,
+          4px 4px 0 #929292,
+          5px 5px 0 #7a7a7a,
+          6px 6px 0 #666666,
+          7px 7px 0 #555555,
+          8px 8px 0 #444444,
+          10px 20px 30px rgba(0,0,0,0.6);
+      }
+
+  - id: clean_minimal_sans
+    name: "Clean Minimal Sans"
+    best_for: "'It's over' style, editorial, Iman Gadzhi-style minimal"
+    pairs_with_patterns:
+      - pattern_break
+      - insider_confession
+      - authority_shortcut
+      - single_question
+      - curiosity_cliffhanger
+    layout: "single_line_top"
+    css: |
+      .stack {
+        position: absolute; top: 56px; left: 0; right: 0;
+        text-align: center;
+        font-family: 'Inter', 'Inter Tight', system-ui, sans-serif;
+        font-weight: 800;
+        letter-spacing: -0.02em;
+        line-height: 1.0;
+      }
+      .clean {
+        font-size: 96px;
+        color: #F4EFE7;
+        text-shadow: 0 6px 30px rgba(0,0,0,0.7);
+      }
+
+# Google Fonts URL used by all styles.
+fonts_url: "https://fonts.googleapis.com/css2?family=Paytone+One&family=Bowlby+One&family=Inter:wght@700;800;900&display=swap"

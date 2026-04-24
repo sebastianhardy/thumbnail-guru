@@ -1,0 +1,38 @@
+# Env
+.env
+.env.local
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+dist/
+build/
+*.egg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# User data (NEVER commit these)
+thumbnail-forge-data/
+.thumbnail-forge/
+
+# Test outputs
+test-output/
+*.png
+*.jpg
+*.jpeg
+!examples/**/*.png
+!examples/**/*.jpg
+!docs/**/*.png
+
+# Node (for future additions)
+node_modules/

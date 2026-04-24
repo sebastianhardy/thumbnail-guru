@@ -1,0 +1,274 @@
+# 20-pattern viral hook library.
+# Ported from Sebastian Hardy's viral-text-hooks research.
+# Each pattern has: name, formula, examples, trigger, when_to_use.
+
+patterns:
+  - id: forbidden_knowledge
+    name: "Forbidden Knowledge"
+    formula: "this feels illegal to know / [thing] they don't want you to see"
+    trigger: "reactance + curiosity gap + scarcity signal"
+    when: "Revealing a powerful tool, workflow, or prompt"
+    weight: 10
+    examples:
+      - "This AI tool feels illegal to know"
+      - "The stack they don't want you to copy"
+      - "Tool my consultant charged me $5K for"
+
+  - id: negative_superlative
+    name: "Negative Superlative"
+    formula: "the worst [X] for [target] / stop using [popular thing]"
+    trigger: "loss aversion (Kahneman/Tversky)"
+    when: "Tool comparison, contrarian takes, common-mistake content"
+    weight: 9
+    examples:
+      - "Stop using ChatGPT like this"
+      - "You're using Claude wrong"
+      - "Delete these 3 AI tools today"
+
+  - id: specific_number_reveal
+    name: "Specific Number Reveal"
+    formula: "[specific $] in [specific time] with [vague mechanism]"
+    trigger: "specificity = credibility (Ogilvy, Meta ad research)"
+    when: "Case studies, before/after claims, revenue content"
+    weight: 9
+    examples:
+      - "$47K MRR from 1 AI agent"
+      - "3 AI tools replaced my team"
+      - "19 hours/week saved with 1 workflow"
+
+  - id: identity_filter
+    name: "Identity Filter"
+    formula: "if you run a [specific role], you need this / [niche] owners only"
+    trigger: "identity activation (Cialdini commitment principle)"
+    when: "Narrow, well-defined audience"
+    weight: 9
+    examples:
+      - "Agency owners, this is a cheat code"
+      - "Founders under $1M: stop"
+      - "Solo operators, you're welcome"
+
+  - id: before_after_gap
+    name: "Before/After Identity Gap"
+    formula: "from [embarrassing past] to [aspirational present]"
+    trigger: "transformation narrative (Campbell monomyth compressed)"
+    when: "Personal story, case study, client transformation"
+    weight: 9
+    examples:
+      - "From 2am nights to 6-figure MRR"
+      - "0 clients → $50K/mo with AI"
+      - "Broke coder → $1M in 11 months"
+
+  - id: interrupted_action
+    name: "Interrupted Action"
+    formula: "wait, is this [tool] actually [verb]ing?"
+    trigger: "Zeigarnik effect (brain holds unfinished action)"
+    when: "Demo videos, product reveals, screen-recording"
+    weight: 8
+    examples:
+      - "Wait, is this AI booking meetings?"
+      - "Hold on, did Claude just do that?"
+      - "No way this is real"
+
+  - id: insider_confession
+    name: "Insider Confession"
+    formula: "I shouldn't admit this but... / here's what nobody tells you"
+    trigger: "pseudo-privacy breach = higher perceived value"
+    when: "Contrarian opinion, behind-the-scenes reveals"
+    weight: 8
+    examples:
+      - "I shouldn't admit this as an agency owner"
+      - "What agencies don't tell clients"
+      - "Nobody talks about this AI scam"
+
+  - id: pattern_break
+    name: "Pattern Break Declaration"
+    formula: "[common belief] is dead / everyone is wrong about [X]"
+    trigger: "cognitive dissonance → must resolve by watching"
+    when: "Trend commentary, paradigm-shift content"
+    weight: 10
+    examples:
+      - "SEO is dead. Here's what replaced it."
+      - "Cold email is over"
+      - "No-code is finished"
+
+  - id: million_dollar_claim
+    name: "Multi-Million Dollar Claim"
+    formula: "how I built a $[M] [business] using [tool]"
+    trigger: "aspiration framing + social proof"
+    when: "Business-model content, workflow reveals"
+    weight: 7
+    examples:
+      - "How I built a $1M agency with 3 AI tools"
+      - "$2.4M from a single AI workflow"
+      - "7-figure agency, 1 employee"
+
+  - id: single_question
+    name: "Single-Question Interrupt"
+    formula: "why does [surprising thing] work? / how is this legal?"
+    trigger: "Loewenstein information-gap theory (strongest curiosity)"
+    when: "Demo content, counterintuitive results"
+    weight: 8
+    examples:
+      - "How is this AI agent legal?"
+      - "Why does this 1-line prompt 10x output?"
+      - "How are they getting away with this?"
+
+  - id: tool_stack
+    name: "Tool Stack Reveal"
+    formula: "my [N] AI tools for [outcome] / steal my stack"
+    trigger: "list promise + status signaling (Miller's Law)"
+    when: "Tool roundups, curated workflow content"
+    weight: 8
+    examples:
+      - "Steal my 5-tool AI stack"
+      - "3 AI tools I use every day"
+      - "My $20/mo AI stack"
+
+  - id: pov_framing
+    name: "POV Framing"
+    formula: "pov: you [specific moment]"
+    trigger: "immersion / mirror-neuron engagement + tribal signal"
+    when: "Relatable or aspirational moments"
+    weight: 7
+    examples:
+      - "POV: your agency uses AI and theirs doesn't"
+      - "POV: you just fired your VA for an AI agent"
+      - "POV: your client doesn't know AI did the work"
+
+  - id: one_weird_trick
+    name: "One-Weird-Trick Revival"
+    formula: "the [single thing] that [huge outcome]"
+    trigger: "minimal-effort promise (brain is energy-conservative)"
+    when: "Tactical content with a single actionable element"
+    weight: 7
+    examples:
+      - "The 1 prompt that replaced my SDR"
+      - "One setting that doubled my agency's output"
+      - "One template worth $30K/mo"
+
+  - id: time_compressed
+    name: "Time-Compressed Result"
+    formula: "in [short time]: [huge outcome]"
+    trigger: "time arbitrage framing"
+    when: "Speed-run demos, quick-build content"
+    weight: 8
+    examples:
+      - "In 11 minutes I built an agent that closes deals"
+      - "10 seconds to automate your inbox"
+      - "1 afternoon = $40K retainer"
+
+  - id: controversial_call_out
+    name: "Controversial Call-Out"
+    formula: "[big name / tool] is overrated / delete [popular thing]"
+    trigger: "pattern break against consensus + social verification"
+    when: "Comparison content with a defensible take"
+    weight: 9
+    examples:
+      - "Delete ChatGPT. Use this instead."
+      - "Zapier is dead. This replaced it."
+      - "Stop paying for HubSpot"
+
+  - id: curiosity_cliffhanger
+    name: "Curiosity Cliffhanger"
+    formula: "[start of shocking event]..."
+    trigger: "open loop (ellipsis = unfinished sentence)"
+    when: "Story-driven content with 7-10s payoff"
+    weight: 7
+    examples:
+      - "I just watched an AI do my job and..."
+      - "This AI agent sent 47 emails and..."
+      - "My agent closed $14K while I slept..."
+
+  - id: authority_shortcut
+    name: "Authority Shortcut"
+    formula: "[credentialed background] reveals [thing] / I [credibility], here's..."
+    trigger: "authority heuristic (Cialdini)"
+    when: "When your credibility is your wedge"
+    weight: 7
+    examples:
+      - "Ex-McKinsey: why AI agents scare me"
+      - "10-year agency owner: stop doing this"
+      - "Google laid me off. I built this with AI."
+
+  - id: reverse_brag
+    name: "Reverse Brag"
+    formula: "I'm not smart. I just [do this one thing]"
+    trigger: "humility framing + relatability (destroys gatekeeper objection)"
+    when: "No-code, AI-for-non-devs, 'you can do this' content"
+    weight: 9
+    examples:
+      - "I'm lazy. That's why my agency runs on AI."
+      - "I can't code. This agent does it for me."
+      - "I'm not technical. I built this in 3 hours."
+
+  - id: public_artifact
+    name: "Public Artifact Reveal"
+    formula: "screenshot of [notification/DM/dashboard] with no explanation"
+    trigger: "visual + textual double-encoding = extended attention"
+    when: "Social proof, client-result, tool-output reveals"
+    weight: 7
+    examples:
+      - "This DM just changed my week"
+      - "$9,400 Stripe notification at 3am"
+      - "Read this client email out loud"
+
+  - id: direct_challenge
+    name: "Direct Challenge"
+    formula: "bet you can't [do X] / try to [hard thing]"
+    trigger: "ego activation (identity poke)"
+    when: "Demo content with legitimately impressive result"
+    weight: 7
+    examples:
+      - "Bet your agency can't do this"
+      - "Try to guess what this AI costs"
+      - "I dare you to test this prompt"
+
+# Default pattern mix — ensures hook output diversity. Tune per-niche.
+default_mix:
+  specific_number_reveal: 2
+  pattern_break: 2
+  identity_filter: 2
+  forbidden_knowledge: 1
+  reverse_brag: 1
+  controversial_call_out: 1
+  before_after_gap: 1
+
+# Anti-patterns — any hook hitting one of these gets flagged.
+anti_patterns:
+  - id: explains_video
+    description: "Summarizes content instead of teasing"
+    example_bad: "In this video I show you 5 AI tools"
+    fix: "Tease, don't reveal"
+  - id: literal_title
+    description: "Reads like a YouTube long-form title"
+    example_bad: "How to use Claude for agency work"
+    fix: "Add stakes: 'Your agency is using Claude wrong'"
+  - id: too_long
+    description: "More than 10 words"
+    fix: "Cut to 3-8 words"
+  - id: too_vague
+    description: "No specific number, name, or role"
+    example_bad: "This changed everything"
+    fix: "Add a specific: '$47K MRR in 90 days'"
+  - id: no_stakes
+    description: "No loss, no tension, no curiosity gap"
+    example_bad: "AI tools are great for business"
+    fix: "Add loss aversion or pattern break"
+  - id: greeting
+    description: "Starts with 'Hey guys' / 'Welcome back'"
+    fix: "Drop the greeting entirely"
+  - id: passive_voice
+    description: "Hedged, weak verbs"
+    example_bad: "AI can be useful for agencies"
+    fix: "Active: 'AI just replaced my sales team'"
+  - id: clickbait_no_payoff
+    description: "Promise doesn't match the video"
+    fix: "Only promise what the video delivers"
+  - id: feature_list
+    description: "Lists tool features, not outcomes"
+    example_bad: "Claude 4.7 supports tool use and web search"
+    fix: "Operator stakes: 'Claude 4.7 killed my SaaS'"
+  - id: ambiguous_pronoun
+    description: "Subject missing"
+    example_bad: "It's all about to change"
+    fix: "Name the subject: 'Agency work is about to change'"
