@@ -1,12 +1,12 @@
 # Architecture
 
-Thumbnail Forge is a CLI tool (`tf`) built on a four-layer architecture designed to scale beyond thumbnails.
+Thumbnail Guru is a CLI tool (`tf`) built on a four-layer architecture designed to scale beyond thumbnails.
 
 ```
 ┌───────────────────────────────────────────────────────┐
 │  CLI layer (Click)                                    │
-│    tf onboard · tf thumb · tf hooks · tf config       │
-│    └─ future: tf script · tf reels · tf repurpose     │
+│    tg onboard · tg thumb · tg hooks · tg config       │
+│    └─ future: tg script · tg reels · tg repurpose     │
 └──────────────────┬────────────────────────────────────┘
                    │
 ┌──────────────────▼────────────────────────────────────┐
@@ -24,7 +24,7 @@ Thumbnail Forge is a CLI tool (`tf`) built on a four-layer architecture designed
 └──────────────────┬────────────────────────────────────┘
                    │
 ┌──────────────────▼────────────────────────────────────┐
-│  User data layer (~/.thumbnail-forge/)                │
+│  User data layer (~/.thumbnail-guru/)                │
 │    config.json           API key, preferences         │
 │    references/           user's inspirational thumbs  │
 │    videos/<slug>/out/    generated thumbnails         │
@@ -37,19 +37,19 @@ Thumbnail Forge is a CLI tool (`tf`) built on a four-layer architecture designed
 
 **Engine is stateless.** `hooks.py` and `generator.py` take input, return output. All state lives in the user-data layer or is passed in via config. Makes testing trivial.
 
-**CLI is thin.** Commands in `cli.py` only orchestrate: read config, pass to engine, render output. Adding `tf script` later means adding one command, one engine module, and one YAML data file.
+**CLI is thin.** Commands in `cli.py` only orchestrate: read config, pass to engine, render output. Adding `tg script` later means adding one command, one engine module, and one YAML data file.
 
-**User data is local-first.** Everything lives at `~/.thumbnail-forge/`. Nothing is uploaded to a server Thumbnail Forge controls. The only outbound call is the Gemini API request to generate base images.
+**User data is local-first.** Everything lives at `~/.thumbnail-guru/`. Nothing is uploaded to a server Thumbnail Guru controls. The only outbound call is the Gemini API request to generate base images.
 
 ## Extending with new commands
 
-Say you want to add `tf script` (long-form YouTube script generator). Here's the recipe:
+Say you want to add `tg script` (long-form YouTube script generator). Here's the recipe:
 
-1. Create `tf/script.py` — the engine module. Pattern it after `tf/hooks.py`.
+1. Create `tg/script.py` — the engine module. Pattern it after `tg/hooks.py`.
 2. Create `data/script_templates.yaml` — the data (outline templates, section templates, etc.).
-3. Add `@main.command()` for `tf script` in `cli.py`.
+3. Add `@main.command()` for `tg script` in `cli.py`.
 4. Re-use `config.load()` for user preferences.
-5. Save output to `~/.thumbnail-forge/videos/<slug>/script.md`.
+5. Save output to `~/.thumbnail-guru/videos/<slug>/script.md`.
 
 Each new command slots in without touching existing ones.
 
@@ -84,7 +84,7 @@ hook (picked)  ────────┐
               └───────┬────────┘
                       │
                       ▼
-             ~/.thumbnail-forge/videos/<slug>/out/<file>.png
+             ~/.thumbnail-guru/videos/<slug>/out/<file>.png
 ```
 
 Base images are cached per composition so three hooks using the same composition only trigger one Gemini call.

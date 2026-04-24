@@ -22,8 +22,8 @@ Thumbs.db
 .idea/
 
 # User data (NEVER commit these)
-thumbnail-forge-data/
-.thumbnail-forge/
+thumbnail-guru-data/
+.thumbnail-guru/
 
 # Test outputs
 test-output/

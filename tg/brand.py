@@ -17,7 +17,7 @@ TAGLINE = "AI workflows for founders who actually ship."
 
 # Feedback webhook. Sebastian sets this to a Discord webhook URL or
 # equivalent before distributing. Set via:
-#   export THUMBNAIL_FORGE_WEBHOOK="https://discord.com/api/webhooks/..."
+#   export THUMBNAIL_GURU_WEBHOOK="https://discord.com/api/webhooks/..."
 # Or hard-code below. Leave empty to disable outbound telemetry entirely.
 FEEDBACK_WEBHOOK_URL = ""
 
@@ -27,7 +27,7 @@ FOOTER_SHORT = (
 
 FOOTER_LONG = f"""
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Thumbnail Forge v{__import__("tf").__version__} · Built by {AUTHOR}
+Thumbnail Guru v{__import__("tg").__version__} · Built by {AUTHOR}
 
   {TAGLINE}
 

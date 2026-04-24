@@ -1,4 +1,4 @@
-"""Onboarding wizard. Run on first use via `tf onboard`."""
+"""Onboarding wizard. Run on first use via `tg onboard`."""
 from __future__ import annotations
 
 import os
@@ -54,7 +54,7 @@ def run() -> None:
     """Full onboarding flow."""
     console.print(Panel.fit(brand.welcome_banner().strip(), border_style="yellow"))
     console.print()
-    console.print("[bold]Welcome.[/bold] This takes ~10 minutes. Answers save to [cyan]~/.thumbnail-forge/[/cyan].\n")
+    console.print("[bold]Welcome.[/bold] This takes ~10 minutes. Answers save to [cyan]~/.thumbnail-guru/[/cyan].\n")
 
     cfg = config.load()
 

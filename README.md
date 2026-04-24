@@ -1,4 +1,4 @@
-# Thumbnail Forge
+# Thumbnail Guru
 
 > The thumb-stopper engine. Scored hooks + dark-moody AI scenes + brand-grade typography. Built on Claude Code principles, powered by Google's Nano Banana Pro.
 
@@ -8,7 +8,7 @@ Built by **[Sebastian Hardy](https://www.youtube.com/@learnaibeforeitstolate)** 
 
 ## What it does
 
-You paste a transcript, a title, and a screenshot of 10 thumbnails you love. Thumbnail Forge does the rest:
+You paste a transcript, a title, and a screenshot of 10 thumbnails you love. Thumbnail Guru does the rest:
 
 1. **Extracts facts** from the transcript: named tools, specific numbers, named roles, emotional levers.
 2. **Generates 10 viral text hooks** using a 20-pattern library (Forbidden Knowledge, Pattern Break, Identity Filter, Reverse Brag, Before/After, and 15 more). Each hook is scored on Specificity + Intrigue out of 20.
@@ -36,8 +36,8 @@ One command. Ninety seconds. Nine thumbnails with different scored hooks.
 Requires Python 3.10+, Chrome, and a free Gemini API key from [aistudio.google.com](https://aistudio.google.com).
 
 ```bash
-git clone https://github.com/sebastianhardy/thumbnail-forge.git
-cd thumbnail-forge
+git clone https://github.com/sebastianhardy/thumbnail-guru.git
+cd thumbnail-guru
 pip install -e .
 ```
 
@@ -49,20 +49,20 @@ That installs the `tf` command globally.
 
 ```bash
 # 1. Run the onboarding wizard (first-run only, ~10 min)
-tf onboard
+tg onboard
 
 # 2. Generate thumbnails for a video
-tf thumb --transcript path/to/video.txt --title "My Video Title"
+tg thumb --transcript path/to/video.txt --title "My Video Title"
 
-# 3. Outputs land in ~/.thumbnail-forge/videos/<slug>/out/
-open ~/.thumbnail-forge/videos/my-video-title/out/
+# 3. Outputs land in ~/.thumbnail-guru/videos/<slug>/out/
+open ~/.thumbnail-guru/videos/my-video-title/out/
 ```
 
 ---
 
 ## The onboarding flow
 
-`tf onboard` asks you (in order):
+`tg onboard` asks you (in order):
 
 | Step | Question | Why it matters |
 |------|----------|----------------|
@@ -77,7 +77,7 @@ open ~/.thumbnail-forge/videos/my-video-title/out/
 | 9 | Forbidden looks | What you explicitly don't want (e.g. "no ring lights, no stock photos, no yellow arrows"). |
 | 10 | Copyright name | Embedded in PNG metadata so your files stay yours. |
 
-Answers are saved to `~/.thumbnail-forge/config.json`. You can re-run `tf onboard` any time to update.
+Answers are saved to `~/.thumbnail-guru/config.json`. You can re-run `tg onboard` any time to update.
 
 ---
 
@@ -89,13 +89,13 @@ Answers are saved to `~/.thumbnail-forge/config.json`. You can re-run `tf onboar
 | **B — 3D extruded block letters** | `DELETE FIGMA` (Bowlby One, cascading drop shadow) | Reaction, bold take, hot take |
 | **C — Clean minimal sans** | `Figma is dead for founders.` (Inter 800, subtle shadow) | Death-of-X, controversial call-out, "it's over" energy |
 
-`tf thumb` auto-picks the best style for each of your top 3 hooks based on the hook's pattern.
+`tg thumb` auto-picks the best style for each of your top 3 hooks based on the hook's pattern.
 
 ---
 
 ## The 20-pattern hook engine
 
-Every hook Thumbnail Forge generates is drawn from one of 20 proven patterns:
+Every hook Thumbnail Guru generates is drawn from one of 20 proven patterns:
 
 1. Forbidden Knowledge · 2. Negative Superlative · 3. Specific Number Reveal · 4. Identity Filter · 5. Before/After Identity Gap · 6. Interrupted Action · 7. Insider Confession · 8. Pattern Break Declaration · 9. Multi-Million Dollar Claim · 10. Single-Question Interrupt · 11. Tool Stack Reveal · 12. POV Framing · 13. One-Weird-Trick Revival · 14. Time-Compressed Result · 15. Controversial Call-Out · 16. Curiosity Cliffhanger · 17. Authority Shortcut · 18. Reverse Brag · 19. Public Artifact Reveal · 20. Direct Challenge.
 
@@ -105,10 +105,10 @@ See [docs/extending.md](docs/extending.md) to add your own.
 
 ## Storage layout
 
-All your data lives at `~/.thumbnail-forge/`:
+All your data lives at `~/.thumbnail-guru/`:
 
 ```
-~/.thumbnail-forge/
+~/.thumbnail-guru/
 ├── config.json                 # API key, channel, aesthetic, preferences
 ├── references/                 # Your 10 reference thumbnails (permanent)
 ├── competitors.json            # Competitor channels
@@ -127,10 +127,10 @@ Everything is local. Nothing is uploaded anywhere except the Gemini API call to 
 
 The `tf` CLI is designed for more than thumbnails. The architecture supports future modules:
 
-- `tf script` — YouTube long-form script generator (coming)
-- `tf reels` — Short-form content (Reels/TikTok/Shorts) with scored hooks (coming)
-- `tf package` — Full upload pack (title, description, chapters, tags) (coming)
-- `tf repurpose` — Long-form → multi-platform cross-post pack (coming)
+- `tg script` — YouTube long-form script generator (coming)
+- `tg reels` — Short-form content (Reels/TikTok/Shorts) with scored hooks (coming)
+- `tg package` — Full upload pack (title, description, chapters, tags) (coming)
+- `tg repurpose` — Long-form → multi-platform cross-post pack (coming)
 
 See [docs/architecture.md](docs/architecture.md) for how to add your own command.
 
@@ -152,4 +152,4 @@ If this saves you 40 hours a year, return the favor:
 - **Instagram:** [@sebastianhardy_](https://instagram.com/sebastianhardy_) · build-in-public, daily
 - **LinkedIn:** [Sebastian Hardy](https://linkedin.com/in/iamsebastianhardy) · operator-grade AI takes
 
-Thanks for using Thumbnail Forge.
+Thanks for using Thumbnail Guru.

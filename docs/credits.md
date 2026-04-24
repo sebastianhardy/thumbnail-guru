@@ -1,6 +1,6 @@
 # Credits
 
-Thumbnail Forge was built and is maintained by **Sebastian Hardy**.
+Thumbnail Guru was built and is maintained by **Sebastian Hardy**.
 
 ## Follow Sebastian
 

@@ -1,4 +1,4 @@
-"""Thumbnail Forge — scored hooks + AI thumbnails + brand typography."""
+"""Thumbnail Guru — scored hooks + AI thumbnails + brand typography."""
 
 __version__ = "0.1.0"
 __author__ = "Sebastian Hardy"

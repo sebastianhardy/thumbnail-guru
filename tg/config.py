@@ -1,11 +1,11 @@
-"""User configuration management. All data lives at ~/.thumbnail-forge/."""
+"""User configuration management. All data lives at ~/.thumbnail-guru/."""
 import json
 import os
 import shutil
 from pathlib import Path
 from typing import Any
 
-HOME_DIR = Path.home() / ".thumbnail-forge"
+HOME_DIR = Path.home() / ".thumbnail-guru"
 CONFIG_PATH = HOME_DIR / "config.json"
 REFERENCES_DIR = HOME_DIR / "references"
 COMPETITORS_PATH = HOME_DIR / "competitors.json"
@@ -48,7 +48,7 @@ def increment_run_count() -> int:
 
 
 def ensure_dirs() -> None:
-    """Create ~/.thumbnail-forge/ scaffold if missing."""
+    """Create ~/.thumbnail-guru/ scaffold if missing."""
     for p in (HOME_DIR, REFERENCES_DIR, VIDEOS_DIR, CACHE_DIR):
         p.mkdir(parents=True, exist_ok=True)
 
@@ -80,7 +80,7 @@ def is_onboarded() -> bool:
 
 
 def store_reference(src: str | Path, index: int) -> Path:
-    """Copy a reference thumbnail into ~/.thumbnail-forge/references/ and return new path.
+    """Copy a reference thumbnail into ~/.thumbnail-guru/references/ and return new path.
 
     src may be a local file path. URLs are stored as-is in the config; only
     local files are copied.
@@ -95,7 +95,7 @@ def store_reference(src: str | Path, index: int) -> Path:
 
 
 def video_dir(slug: str) -> Path:
-    """Return ~/.thumbnail-forge/videos/<slug>/ ensuring it exists."""
+    """Return ~/.thumbnail-guru/videos/<slug>/ ensuring it exists."""
     d = VIDEOS_DIR / slug
     (d / "out").mkdir(parents=True, exist_ok=True)
     return d

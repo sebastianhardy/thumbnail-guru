@@ -1,4 +1,4 @@
-# Extending Thumbnail Forge
+# Extending Thumbnail Guru
 
 Three ways to extend without touching the core engine.
 
@@ -18,7 +18,7 @@ Edit `data/patterns.yaml`. Add a block like:
       - "Example hook 2"
 ```
 
-Then add templates in `tf/hooks.py` under `_TEMPLATES`:
+Then add templates in `tg/hooks.py` under `_TEMPLATES`:
 
 ```python
 "my_pattern": [
@@ -70,13 +70,13 @@ Edit `data/overlay_styles.yaml`:
 
 Add any Google Fonts you reference to the `fonts_url` line at the bottom of the same file.
 
-## 4. Add a new top-level command (e.g. `tf script`)
+## 4. Add a new top-level command (e.g. `tg script`)
 
 Recipe:
 
-1. Create `tf/script.py` — your engine (mirror `tf/hooks.py` or `tf/generator.py`).
+1. Create `tg/script.py` — your engine (mirror `tg/hooks.py` or `tg/generator.py`).
 2. Create `data/script_templates.yaml` — your data.
-3. In `tf/cli.py`, add:
+3. In `tg/cli.py`, add:
 
 ```python
 @main.command()
@@ -85,7 +85,7 @@ def script(transcript):
     """Generate a long-form YouTube script."""
     _require_onboarded()
     cfg = config.load()
-    # call your engine, save to ~/.thumbnail-forge/videos/<slug>/script.md
+    # call your engine, save to ~/.thumbnail-guru/videos/<slug>/script.md
 ```
 
 4. Update README with the new command.
@@ -94,31 +94,31 @@ Each command lives in its own engine module. No cross-dependencies.
 
 ## 5. Use a different image model
 
-Edit `tf/generator.py` → `generate_base_image()`. Replace the Gemini call with your model of choice (Stable Diffusion via Replicate, Midjourney via API, OpenAI DALL-E, etc.).
+Edit `tg/generator.py` → `generate_base_image()`. Replace the Gemini call with your model of choice (Stable Diffusion via Replicate, Midjourney via API, OpenAI DALL-E, etc.).
 
 The rest of the pipeline (overlay, output) is model-agnostic.
 
 ## 6. Add a Claude Code skill wrapper
 
-If you use Claude Code, you can wrap Thumbnail Forge as a skill:
+If you use Claude Code, you can wrap Thumbnail Guru as a skill:
 
 ```
-~/.claude/skills/thumb-forge/SKILL.md
+~/.claude/skills/thumb-guru/SKILL.md
 ```
 
 Contents:
 
 ```markdown
 ---
-name: thumb-forge
-description: "Generate scored-hook YouTube thumbnails via Thumbnail Forge CLI."
+name: thumb-guru
+description: "Generate scored-hook YouTube thumbnails via Thumbnail Guru CLI."
 allowed-tools: [Bash, Read]
 ---
 
 When the user asks for thumbnails, run:
-  `tf thumb --title "[title]" --transcript [path-to-transcript]`
+  `tg thumb --title "[title]" --transcript [path-to-transcript]`
 
 Then show the user the generated files and the hooks.md table.
 ```
 
-This is optional. Thumbnail Forge works standalone without Claude Code.
+This is optional. Thumbnail Guru works standalone without Claude Code.
