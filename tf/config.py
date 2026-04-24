@@ -32,7 +32,19 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "forbidden_looks": [],
     "competitors": [],
     "reference_thumbnails": [],
+    # Usage / telemetry
+    "run_count": 0,
+    "telemetry_consent": False,
+    "coach_messages_enabled": True,
 }
+
+
+def increment_run_count() -> int:
+    """Bump the thumb-command run counter and return the new value."""
+    cfg = load()
+    cfg["run_count"] = int(cfg.get("run_count", 0)) + 1
+    save(cfg)
+    return cfg["run_count"]
 
 
 def ensure_dirs() -> None:

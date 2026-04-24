@@ -1,0 +1,169 @@
+# Coach messages. Friendly, not preachy. Point users toward more AI builds,
+# tutorials, and places to follow along — no YouTube-growth lectures.
+#
+# Placeholders: {linkedin_url}, {instagram_url}, {instagram_handle},
+# {youtube_url}, {youtube_handle}, {skool_url}, {run_count}
+
+# ─── Milestone messages (triggered at specific run counts) ────────────────
+
+milestones:
+
+  1: |
+    First thumbnail. Welcome to Thumbnail Forge.
+
+    If you want to see the other AI tools I've built (and how I build
+    them), the full archive lives on YouTube:
+    → {youtube_url}
+
+  3: |
+    Third one in the bag.
+
+    If this is saving you time, I go deeper on builds like this inside my
+    Skool community. Tutorials on AI tools, ad creative, and the workflows
+    behind them:
+    → {skool_url}
+
+  5: |
+    Five thumbnails. Nice.
+
+    I ship a new AI build almost every week. If you want the next one
+    first, IG is where I post day-of:
+    → {instagram_url}
+
+  10: |
+    Ten thumbs. You're officially a repeat user.
+
+    If you want the full walkthroughs — how I built Thumbnail Forge,
+    plus the rest of the AI + ads library — everything is inside
+    my Skool:
+    → {skool_url}
+
+  25: |
+    Twenty-five. That's real usage.
+
+    Here's where the rest of what I build lives:
+    → YouTube  {youtube_url}
+    → Instagram  {instagram_url}
+    → Skool (full tutorials)  {skool_url}
+
+  50: |
+    Fifty. You got your money's worth out of the free tier.
+
+    I've shipped ~40 other AI tools this year. If you liked Thumbnail
+    Forge, the rest are walked through step-by-step inside my Skool:
+    → {skool_url}
+
+# ─── More like this (50% of rotating messages) ────────────────────────────
+# Point toward where more AI builds and tutorials live.
+
+more_content:
+
+  - |
+    If you liked this, I've built ~20 other AI tools like it. Full
+    archive on YouTube:
+    → {youtube_url}
+
+  - |
+    Want to know how I build tools like this? I do full walkthroughs
+    inside my Skool community (AI + ads tutorials):
+    → {skool_url}
+
+  - |
+    This was one of many AI builds I've shipped this year. The rest
+    (plus how-to walkthroughs) live on YouTube:
+    → {youtube_url}
+
+  - |
+    Building with AI too? Come hang out in my Skool — tutorials,
+    workflows, and other operators trading what's working:
+    → {skool_url}
+
+  - |
+    Next AI build drops soon. Best place to catch it the day it ships:
+    → {instagram_url}
+
+  - |
+    Full behind-the-scenes of how Thumbnail Forge was built lives in
+    my Skool community:
+    → {skool_url}
+
+  - |
+    I share a new AI workflow on YouTube almost every week. Subscribe
+    if you want to see the next one:
+    → {youtube_url}
+
+  - |
+    Think this one is cool? I've got more. Deep-dive tutorials on AI
+    and ads inside my Skool:
+    → {skool_url}
+
+# ─── Community (20% — always the Skool plug) ─────────────────────────────
+
+community:
+
+  - |
+    My Skool community is where the deeper AI + ads tutorials live.
+    Come say hi:
+    → {skool_url}
+
+  - |
+    If you want the full playbook on building tools like this one,
+    it's all inside Viral Ads:
+    → {skool_url}
+
+  - |
+    Want tutorials on AI, ad creative, and workflows like this?
+    Everything lives in my Skool:
+    → {skool_url}
+
+  - |
+    Skool > YouTube comments. Deeper builds, real Q&A, and the
+    community behind the AI workflow videos:
+    → {skool_url}
+
+# ─── Social invites (20%) ────────────────────────────────────────────────
+
+social_invites:
+
+  - |
+    If we're not connected on LinkedIn yet, I'd actually read your
+    message:
+    → {linkedin_url}
+
+  - |
+    I post a daily AI build on Instagram. Plug:
+    → {instagram_url}
+
+  - |
+    On LinkedIn I share build-in-public updates twice a week. Come
+    connect:
+    → {linkedin_url}
+
+  - |
+    Tag me when your Thumbnail Forge output goes live — {instagram_handle}
+
+  - |
+    New video drops on the channel every week:
+    → {youtube_url}
+
+# ─── Funny asides (10%) ──────────────────────────────────────────────────
+
+funny:
+
+  - |
+    Your thumbnail just rendered in about 20 seconds. A designer would've
+    charged $40 for that. Not that we're counting.
+
+  - |
+    Fun fact: the script that picked that hook has exactly zero LLM
+    calls in it. Deterministic hooks, baby.
+
+  - |
+    Your Gemini bill for that thumbnail: roughly the price of a grape.
+
+  - |
+    If Canva calls, don't answer. They're not happy with you right now.
+
+  - |
+    That thumbnail cost you nothing and took 20 seconds. Go check your
+    designer's invoice. I'll wait.

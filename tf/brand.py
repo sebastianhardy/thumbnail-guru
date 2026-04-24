@@ -7,10 +7,19 @@ AUTHOR = "Sebastian Hardy"
 YOUTUBE_URL = "https://www.youtube.com/@learnaibeforeitstolate"
 YOUTUBE_HANDLE = "@learnaibeforeitstolate"
 INSTAGRAM_HANDLE = "@sebastianhardy_"
-INSTAGRAM_URL = "https://instagram.com/sebastianhardy_"
-LINKEDIN_URL = "https://linkedin.com/in/iamsebastianhardy"
+INSTAGRAM_URL = "https://www.instagram.com/sebastianhardy_/"
+LINKEDIN_URL = "https://www.linkedin.com/in/iamsebastianhardy/"
+LINKEDIN_HANDLE = "iamsebastianhardy"
+SKOOL_URL = "https://skool.com/viral-ads"
+SKOOL_NAME = "Viral Ads"
 
 TAGLINE = "AI workflows for founders who actually ship."
+
+# Feedback webhook. Sebastian sets this to a Discord webhook URL or
+# equivalent before distributing. Set via:
+#   export THUMBNAIL_FORGE_WEBHOOK="https://discord.com/api/webhooks/..."
+# Or hard-code below. Leave empty to disable outbound telemetry entirely.
+FEEDBACK_WEBHOOK_URL = ""
 
 FOOTER_SHORT = (
     f"Built by {AUTHOR} · {YOUTUBE_HANDLE} on YouTube · {INSTAGRAM_HANDLE} on Instagram"
