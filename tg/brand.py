@@ -45,7 +45,7 @@ def welcome_banner() -> str:
     return f"""
 ╔══════════════════════════════════════════════════════╗
 ║                                                      ║
-║   T H U M B N A I L   F O R G E                      ║
+║   T H U M B N A I L   G U R U                        ║
 ║                                                      ║
 ║   The thumb-stopper engine.                          ║
 ║   Built by {AUTHOR:<42}║
