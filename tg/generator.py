@@ -305,7 +305,7 @@ def generate_thumbnail_set(
         if comp["id"] not in base_cache:
             print(f"  [{i}/{len(hooks)}] Generating base image for composition '{comp['id']}'...")
             base_cache[comp["id"]] = generate_base_image(
-                comp, user_cfg, user_cfg["gemini_api_key"]
+                comp, user_cfg, cfg.gemini_api_key()
             )
 
         base = base_cache[comp["id"]]

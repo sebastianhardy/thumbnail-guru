@@ -7,14 +7,14 @@ from typing import Any
 
 HOME_DIR = Path.home() / ".thumbnail-guru"
 CONFIG_PATH = HOME_DIR / "config.json"
+ENV_PATH = HOME_DIR / ".env"
 REFERENCES_DIR = HOME_DIR / "references"
 COMPETITORS_PATH = HOME_DIR / "competitors.json"
 VIDEOS_DIR = HOME_DIR / "videos"
 CACHE_DIR = HOME_DIR / "cache"
 
 DEFAULT_CONFIG: dict[str, Any] = {
-    "version": "0.1.0",
-    "gemini_api_key": "",
+    "version": "0.2.0",
     "youtube_channel_url": "",
     "youtube_handle": "",
     "niche": "",
@@ -32,11 +32,69 @@ DEFAULT_CONFIG: dict[str, Any] = {
     "forbidden_looks": [],
     "competitors": [],
     "reference_thumbnails": [],
-    # Usage / telemetry
+    # Usage
     "run_count": 0,
-    "telemetry_consent": False,
     "coach_messages_enabled": True,
 }
+
+
+# ─── .env file support ─────────────────────────────────────────────────────
+# API keys live in ~/.thumbnail-guru/.env (not in config.json) so they can
+# be edited directly, rotated, or overridden via env vars.
+
+def load_env() -> dict[str, str]:
+    """Load ~/.thumbnail-guru/.env into a dict. Returns {} if missing."""
+    if not ENV_PATH.exists():
+        return {}
+    out: dict[str, str] = {}
+    for raw in ENV_PATH.read_text(encoding="utf-8").splitlines():
+        line = raw.strip()
+        if not line or line.startswith("#"):
+            continue
+        if "=" not in line:
+            continue
+        k, _, v = line.partition("=")
+        out[k.strip()] = v.strip().strip("'\"")
+    return out
+
+
+def write_env(keys: dict[str, str]) -> None:
+    """Merge-and-write keys into ~/.thumbnail-guru/.env.
+    Preserves existing keys not in the update dict.
+    """
+    ensure_dirs()
+    existing = load_env()
+    existing.update({k: v for k, v in keys.items() if v})
+    lines = [
+        "# Thumbnail Guru API keys. Do not commit this file.",
+        "# Regenerate any key at any time — just paste the new value below.",
+        "",
+    ]
+    for k, v in existing.items():
+        lines.append(f"{k}={v}")
+    ENV_PATH.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    try:
+        ENV_PATH.chmod(0o600)  # owner-only read/write
+    except OSError:
+        pass
+
+
+def gemini_api_key() -> str:
+    """Return the Gemini API key. Order: .env → env var → empty."""
+    return (
+        load_env().get("GEMINI_API_KEY", "")
+        or os.environ.get("GEMINI_API_KEY", "")
+        or ""
+    )
+
+
+def youtube_api_key() -> str:
+    """Return the YouTube API key. Optional — empty if user skipped."""
+    return (
+        load_env().get("YOUTUBE_API_KEY", "")
+        or os.environ.get("YOUTUBE_API_KEY", "")
+        or ""
+    )
 
 
 def increment_run_count() -> int:
@@ -72,11 +130,19 @@ def save(cfg: dict[str, Any]) -> None:
 
 
 def is_onboarded() -> bool:
-    """Check whether the user has finished onboarding."""
+    """Check whether the user has finished onboarding.
+
+    Two conditions:
+      1. A Gemini API key exists (required).
+      2. The user has gone through the full wizard (a YouTube channel URL
+         is the proxy — it's the last required step before optional ones).
+    """
     if not CONFIG_PATH.exists():
         return False
+    if not gemini_api_key():
+        return False
     cfg = load()
-    return bool(cfg.get("gemini_api_key")) and bool(cfg.get("youtube_channel_url"))
+    return bool(cfg.get("youtube_channel_url"))
 
 
 def store_reference(src: str | Path, index: int) -> Path:

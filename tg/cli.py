@@ -16,14 +16,29 @@ from . import __version__, brand, config, hooks as hooks_mod, generator, onboard
 console = Console()
 
 
-@click.group()
+@click.group(invoke_without_command=True)
 @click.version_option(__version__, prog_name="Thumbnail Guru")
-def main() -> None:
+@click.pass_context
+def main(ctx: click.Context) -> None:
     """Thumbnail Guru — the thumb-stopper engine.
 
     Built by Sebastian Hardy. YouTube: @learnaibeforeitstolate.
+
+    First run? Just type "tg" and it will walk you through setup.
     """
-    pass
+    if ctx.invoked_subcommand is not None:
+        return
+    # No subcommand — auto-onboard first-timers, show help for returning users.
+    if not config.is_onboarded():
+        onboard_mod.run()
+    else:
+        console.print(brand.welcome_banner())
+        console.print("[dim]You're already set up. Common commands:[/dim]\n")
+        console.print("  [cyan]tg thumb --title \"Your video\"[/cyan]      Generate thumbnails")
+        console.print("  [cyan]tg hooks --title \"Your video\"[/cyan]      Just see scored hooks")
+        console.print("  [cyan]tg onboard[/cyan]                          Re-run the setup wizard")
+        console.print("  [cyan]tg config --show[/cyan]                    View your config")
+        console.print("  [cyan]tg --help[/cyan]                           Full command list\n")
 
 
 # ─── onboard ───────────────────────────────────────────────────────────────
